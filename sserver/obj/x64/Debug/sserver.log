@@ -1,0 +1,24 @@
+﻿  正在验证源
+  正在将源远程复制到“192.168.1.136”
+  正在验证体系结构
+  正在验证体系结构
+  正在启动远程生成
+  正在编译源:
+  main.cpp
+D:\lfan\study\Project\C++\sserver\sserver\EventHandler.h(10,40): warning : no return statement in function returning non-void [-Wreturn-type]
+D:\lfan\study\Project\C++\sserver\sserver\EventHandler.h(10,40): warning :   virtual int HandleInput(int fd = -1) {}
+D:\lfan\study\Project\C++\sserver\sserver\EventHandler.h(10,40): warning :                                         ^
+D:\lfan\study\Project\C++\sserver\sserver\EventHandler.h(12,41): warning : no return statement in function returning non-void [-Wreturn-type]
+D:\lfan\study\Project\C++\sserver\sserver\EventHandler.h(12,41): warning :   virtual int HandleOutput(int fd = -1) {}
+D:\lfan\study\Project\C++\sserver\sserver\EventHandler.h(12,41): warning :                                          ^
+D:\lfan\study\Project\C++\sserver\sserver\EventHandler.h(14,42): warning : no return statement in function returning non-void [-Wreturn-type]
+D:\lfan\study\Project\C++\sserver\sserver\EventHandler.h(14,42): warning :   virtual int HandleTimeout(int fd = -1) {}
+D:\lfan\study\Project\C++\sserver\sserver\EventHandler.h(14,42): warning :                                           ^
+D:\lfan\study\Project\C++\sserver\sserver\EventHandler.h(16,40): warning : no return statement in function returning non-void [-Wreturn-type]
+D:\lfan\study\Project\C++\sserver\sserver\EventHandler.h(16,40): warning :   virtual int HandleClose(int fd = -1) {}
+D:\lfan\study\Project\C++\sserver\sserver\EventHandler.h(16,40): warning :                                         ^
+D:\lfan\study\Project\C++\sserver\sserver\ConnectionEvent.h(44,42): warning : no return statement in function returning non-void [-Wreturn-type]
+D:\lfan\study\Project\C++\sserver\sserver\ConnectionEvent.h(44,42): warning :   virtual int HandleTimeout(int fd = -1) {}
+D:\lfan\study\Project\C++\sserver\sserver\ConnectionEvent.h(44,42): warning :                                           ^
+  正在链接对象
+  sserver.vcxproj -> D:\lfan\study\Project\C++\sserver\sserver\bin\x64\Debug\sserver.out

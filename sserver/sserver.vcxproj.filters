@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="header">
+      <UniqueIdentifier>{aa5ef0b0-0f40-4fa6-9be2-9acacf0ac53f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source">
+      <UniqueIdentifier>{0b4bc11b-9e10-46b5-bab7-8ebf1aed7519}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="logic">
+      <UniqueIdentifier>{8960082c-c8a3-4f24-9173-aee420ff0848}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="Connection.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="EpollLoop.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="Acceptor.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="AcceptorEvent.cpp">
+      <Filter>logic</Filter>
+    </ClCompile>
+    <ClCompile Include="ConnectionEvent.cpp">
+      <Filter>logic</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="EventHandler.h">
+      <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="EventLoop.h">
+      <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="Connection.h">
+      <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="EpollLoop.h">
+      <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="Acceptor.h">
+      <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="AcceptorEvent.h">
+      <Filter>logic</Filter>
+    </ClInclude>
+    <ClInclude Include="ConnectionEvent.h">
+      <Filter>logic</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
