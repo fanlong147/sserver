@@ -16,14 +16,14 @@ public:
 	~CConnection();
 	
 	inline void SetSocketFD(int socketFD) { m_socketFD = socketFD; }
-	inline int GetSocketFD() { return m_socketFD; }
+	inline int GetSocketFD() const { return m_socketFD; }
 
 	void SetTimeOut(int nSec, int nUsec);
 
 	int Connect(std::string strIP, int nPort);
 	
 	int SetNoBlock(bool bFlag = true);	//true：设置， false:取消设置
-	int SetNoDelay(bool bFlag = true);	//true：设置， false:取消设置
+	int SetNoDelay(bool bFlag = true);	
 
 	int Send(const char * szBuf, int nSize);
 	int Recv(char * szBuf, int nSize);

@@ -15,43 +15,14 @@
     <ClCompile Include="main.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="Connection.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
-    <ClCompile Include="EpollLoop.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
-    <ClCompile Include="Acceptor.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
-    <ClCompile Include="AcceptorEvent.cpp">
-      <Filter>logic</Filter>
-    </ClCompile>
-    <ClCompile Include="ConnectionEvent.cpp">
-      <Filter>logic</Filter>
-    </ClCompile>
+    <ClCompile Include="net\sock_stream.cpp" />
+    <ClCompile Include="net\acceptor.cpp" />
+    <ClCompile Include="net\epoll_poller.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="EventHandler.h">
-      <Filter>header</Filter>
-    </ClInclude>
-    <ClInclude Include="EventLoop.h">
-      <Filter>header</Filter>
-    </ClInclude>
-    <ClInclude Include="Connection.h">
-      <Filter>header</Filter>
-    </ClInclude>
-    <ClInclude Include="EpollLoop.h">
-      <Filter>header</Filter>
-    </ClInclude>
-    <ClInclude Include="Acceptor.h">
-      <Filter>header</Filter>
-    </ClInclude>
-    <ClInclude Include="AcceptorEvent.h">
-      <Filter>logic</Filter>
-    </ClInclude>
-    <ClInclude Include="ConnectionEvent.h">
-      <Filter>logic</Filter>
-    </ClInclude>
+    <ClInclude Include="net\sock_stream.h" />
+    <ClInclude Include="net\acceptor.h" />
+    <ClInclude Include="net\poller.h" />
+    <ClInclude Include="net\epoll_poller.h" />
   </ItemGroup>
 </Project>

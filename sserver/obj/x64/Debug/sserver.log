@@ -5,20 +5,27 @@
   正在启动远程生成
   正在编译源:
   main.cpp
-D:\lfan\study\Project\C++\sserver\sserver\EventHandler.h(10,40): warning : no return statement in function returning non-void [-Wreturn-type]
-D:\lfan\study\Project\C++\sserver\sserver\EventHandler.h(10,40): warning :   virtual int HandleInput(int fd = -1) {}
-D:\lfan\study\Project\C++\sserver\sserver\EventHandler.h(10,40): warning :                                         ^
-D:\lfan\study\Project\C++\sserver\sserver\EventHandler.h(12,41): warning : no return statement in function returning non-void [-Wreturn-type]
-D:\lfan\study\Project\C++\sserver\sserver\EventHandler.h(12,41): warning :   virtual int HandleOutput(int fd = -1) {}
-D:\lfan\study\Project\C++\sserver\sserver\EventHandler.h(12,41): warning :                                          ^
-D:\lfan\study\Project\C++\sserver\sserver\EventHandler.h(14,42): warning : no return statement in function returning non-void [-Wreturn-type]
-D:\lfan\study\Project\C++\sserver\sserver\EventHandler.h(14,42): warning :   virtual int HandleTimeout(int fd = -1) {}
-D:\lfan\study\Project\C++\sserver\sserver\EventHandler.h(14,42): warning :                                           ^
-D:\lfan\study\Project\C++\sserver\sserver\EventHandler.h(16,40): warning : no return statement in function returning non-void [-Wreturn-type]
-D:\lfan\study\Project\C++\sserver\sserver\EventHandler.h(16,40): warning :   virtual int HandleClose(int fd = -1) {}
-D:\lfan\study\Project\C++\sserver\sserver\EventHandler.h(16,40): warning :                                         ^
-D:\lfan\study\Project\C++\sserver\sserver\ConnectionEvent.h(44,42): warning : no return statement in function returning non-void [-Wreturn-type]
-D:\lfan\study\Project\C++\sserver\sserver\ConnectionEvent.h(44,42): warning :   virtual int HandleTimeout(int fd = -1) {}
-D:\lfan\study\Project\C++\sserver\sserver\ConnectionEvent.h(44,42): warning :                                           ^
-  正在链接对象
-  sserver.vcxproj -> D:\lfan\study\Project\C++\sserver\sserver\bin\x64\Debug\sserver.out
+D:\lfan\study\Project\C++\sserver\sserver\main.cpp(1,34): error : sserver/net/acceptor.h: No such file or directory
+D:\lfan\study\Project\C++\sserver\sserver\main.cpp(1,34): error :  #include "sserver/net/acceptor.h"
+D:\lfan\study\Project\C++\sserver\sserver\main.cpp(1,34): error :                                   ^
+D:\lfan\study\Project\C++\sserver\sserver\main.cpp(1,34): error : compilation terminated.
+  acceptor.cpp
+D:\lfan\study\Project\C++\sserver\sserver\net\acceptor.cpp(36,28): warning : conversion to ‘sa_family_t {aka short unsigned int}’ from ‘int’ may alter its value [-Wconversion]
+D:\lfan\study\Project\C++\sserver\sserver\net\acceptor.cpp(36,28): warning :   listen_address.sin_family = sock_family_;
+D:\lfan\study\Project\C++\sserver\sserver\net\acceptor.cpp(36,28): warning :                             ^
+D:\lfan\study\Project\C++\sserver\sserver\net\acceptor.cpp(38,45): warning : conversion to ‘uint16_t {aka short unsigned int}’ from ‘int’ may alter its value [-Wconversion]
+D:\lfan\study\Project\C++\sserver\sserver\net\acceptor.cpp(38,45): warning :   listen_address.sin_port = htons(listen_port);
+D:\lfan\study\Project\C++\sserver\sserver\net\acceptor.cpp(38,45): warning :                                              ^
+  sock_stream.cpp
+D:\lfan\study\Project\C++\sserver\sserver\net\sock_stream.cpp(73,25): warning : conversion to ‘sa_family_t {aka short unsigned int}’ from ‘int’ may alter its value [-Wconversion]
+D:\lfan\study\Project\C++\sserver\sserver\net\sock_stream.cpp(73,25): warning :   remote_addr.sin_family = sock_family_;
+D:\lfan\study\Project\C++\sserver\sserver\net\sock_stream.cpp(73,25): warning :                          ^
+D:\lfan\study\Project\C++\sserver\sserver\net\sock_stream.cpp(75,42): warning : conversion to ‘uint16_t {aka short unsigned int}’ from ‘int’ may alter its value [-Wconversion]
+D:\lfan\study\Project\C++\sserver\sserver\net\sock_stream.cpp(75,42): warning :   remote_addr.sin_port = htons(remote_port);
+D:\lfan\study\Project\C++\sserver\sserver\net\sock_stream.cpp(75,42): warning :                                           ^
+D:\lfan\study\Project\C++\sserver\sserver\net\sock_stream.cpp(119,48): warning : conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
+D:\lfan\study\Project\C++\sserver\sserver\net\sock_stream.cpp(119,48): warning :   return send(sock_fd_,data_buf, num_bytes, flag);
+D:\lfan\study\Project\C++\sserver\sserver\net\sock_stream.cpp(119,48): warning :                                                 ^
+D:\lfan\study\Project\C++\sserver\sserver\net\sock_stream.cpp(124,49): warning : conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
+D:\lfan\study\Project\C++\sserver\sserver\net\sock_stream.cpp(124,49): warning :   return recv(sock_fd_, data_buf, num_bytes, flag);
+D:\lfan\study\Project\C++\sserver\sserver\net\sock_stream.cpp(124,49): warning :                                                  ^

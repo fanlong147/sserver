@@ -75,21 +75,16 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
-    <ClCompile Include="Acceptor.cpp" />
-    <ClCompile Include="AcceptorEvent.cpp" />
-    <ClCompile Include="Connection.cpp" />
-    <ClCompile Include="ConnectionEvent.cpp" />
-    <ClCompile Include="EpollLoop.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="net\acceptor.cpp" />
+    <ClCompile Include="net\epoll_poller.cpp" />
+    <ClCompile Include="net\sock_stream.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Acceptor.h" />
-    <ClInclude Include="AcceptorEvent.h" />
-    <ClInclude Include="Connection.h" />
-    <ClInclude Include="ConnectionEvent.h" />
-    <ClInclude Include="EpollLoop.h" />
-    <ClInclude Include="EventHandler.h" />
-    <ClInclude Include="EventLoop.h" />
+    <ClInclude Include="net\acceptor.h" />
+    <ClInclude Include="net\epoll_poller.h" />
+    <ClInclude Include="net\poller.h" />
+    <ClInclude Include="net\sock_stream.h" />
   </ItemGroup>
   <ItemDefinitionGroup />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
