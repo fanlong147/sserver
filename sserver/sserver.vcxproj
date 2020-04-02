@@ -83,6 +83,7 @@
   <ItemGroup>
     <ClInclude Include="net\acceptor.h" />
     <ClInclude Include="net\epoll_poller.h" />
+    <ClInclude Include="net\event_handler.h" />
     <ClInclude Include="net\poller.h" />
     <ClInclude Include="net\sock_stream.h" />
   </ItemGroup>

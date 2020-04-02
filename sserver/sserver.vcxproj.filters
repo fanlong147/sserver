@@ -24,5 +24,6 @@
     <ClInclude Include="net\acceptor.h" />
     <ClInclude Include="net\poller.h" />
     <ClInclude Include="net\epoll_poller.h" />
+    <ClInclude Include="net\event_handler.h" />
   </ItemGroup>
 </Project>
