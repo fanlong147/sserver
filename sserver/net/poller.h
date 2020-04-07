@@ -1,17 +1,7 @@
 #ifndef __SSERVER_NET_POLLER_H__
 #define __SSERVER_NET_POLLER_H__
 
-#include <map>
-
-//‘›∂®£¨πª”√
-enum EventMask
-{
-	kNoneMask = 0x00,
-	kReadMask = 0x01,
-	kWriteMask = 0x02,
-	kRWMask = kReadMask | kWriteMask,
-	kAllMask = 0xFF
-};
+#include "event_handler.h"
 
 class Poller {
 public:
