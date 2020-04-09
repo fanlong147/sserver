@@ -13,10 +13,13 @@ public:
 	~EventLoop();
 
 	int Register(int fd, EventHandler * handler_ptr, EventMask mask);
-	int UnRegister(int fd, EventHandler * handler_ptr, EventMask mask);
+	int UnRegister(int fd, EventHandler * handler_ptr, EventMask mask, bool is_delete_handler = false);
 
 //	int RegisterAll();
-//	int UnRegisterAll();
+	int UnRegisterAll(int fd, bool is_delete_handler = false);
+
+	//获取监控中的fd对应的处理器，如fd未在监控中，返回NULL
+	EventHandler * GetMonitorHandler(int fd) const;
 
 	int Loop();
 	int CancelLoop();
