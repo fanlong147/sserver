@@ -3,7 +3,7 @@
 
 #include <assert.h>
 
-EventLoop::EventLoop():poller_(NULL)
+EventLoop::EventLoop():poller_(NULL),cancel_loop_(false)
 {
 	poller_ = new EpollPoller();
 	assert(poller_);
@@ -15,6 +15,13 @@ EventLoop::~EventLoop()
 	{
 		delete poller_;
 		poller_ = NULL;
+	}
+	for(auto iter : fd_handlers_)
+	{
+		if (iter->second.handler_ptr)
+		{
+			delete iter->second.handler_ptr;
+		}
 	}
 }
 
@@ -105,7 +112,53 @@ EventHandler* EventLoop::GetMonitorHandler(int fd) const
 }
 int EventLoop::Loop()
 {
-
+	std::map<int, EventMask> result;
+	while (!cancel_loop_)
+	{
+		int fd_counts = poller_->Poll(result, 10);
+		if (0 > fd_counts)
+		{
+			if (errno == EINTR)
+			{
+				continue;
+			}
+			return -1;
+		}
+		for (auto s : result)
+		{
+			auto handler_iter = fd_handlers_.find(s.first);
+			if (handler_iter == fd_handlers_.end())
+			{
+				printf("no find handler for fd:%d\n", s.first);
+				continue;
+			}
+			if (s.second & kReadMask)
+			{
+				if (!(handler_iter->second.events & kReadMask))
+				{
+					printf("error event\n");
+					handler_iter->second.handler_ptr->HandleClose(s.first, kAllMask);
+				}
+				if (0 > handler_iter->second.handler_ptr->HandleInput(s.first))
+				{
+					handler_iter->second.handler_ptr->HandleClose(s.first, kAllMask);
+					continue;
+				}
+			}
+			if (s.second & kWriteMask)
+			{
+				if (!(handler_iter->second.events & kWriteMask))
+				{
+					printf("error event\n");
+					handler_iter->second.handler_ptr->HandleClose(s.first, kAllMask);
+				}
+				if (0 > handler_iter->second.handler_ptr->HandleOutput(s.first))
+				{
+					handler_iter->second.handler_ptr->HandleClose(s.first,kAllMask);
+				}
+			}
+		}
+	}
 }
 
 int EventLoop::CancelLoop()

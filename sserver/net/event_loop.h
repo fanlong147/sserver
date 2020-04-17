@@ -32,6 +32,8 @@ private:
 		EventHandler * handler_ptr;
 	};
 	std::map<int, InnerHandler> fd_handlers_;
+
+	bool cancel_loop_;
 };
 
 #endif

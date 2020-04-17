@@ -17,10 +17,10 @@ public:
 	EventHandler();
 	virtual ~EventHandler();
 
-	virtual int HandleInput(int fd) = 0;
-	virtual int HandleOutput(int fd) = 0;
+	virtual int HandleInput(int fd) {};
+	virtual int HandleOutput(int fd) {};
 
-	virtual int HandleClose(int fd, EventMask event_mask) = 0;
+	virtual int HandleClose(int fd, EventMask event_mask) {};
 private:
 
 };

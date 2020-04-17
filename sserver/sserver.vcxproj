@@ -75,6 +75,7 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
+    <ClCompile Include="acceptor_event.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="net\acceptor.cpp" />
     <ClCompile Include="net\epoll_poller.cpp" />
@@ -82,12 +83,14 @@
     <ClCompile Include="net\sock_stream.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="acceptor_event.h" />
     <ClInclude Include="net\acceptor.h" />
     <ClInclude Include="net\epoll_poller.h" />
     <ClInclude Include="net\event_handler.h" />
     <ClInclude Include="net\event_loop.h" />
     <ClInclude Include="net\poller.h" />
     <ClInclude Include="net\sock_stream.h" />
+    <ClInclude Include="stream_event.h" />
   </ItemGroup>
   <ItemDefinitionGroup />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
