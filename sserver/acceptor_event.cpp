@@ -1,5 +1,5 @@
 #include "acceptor_event.h"
-
+#include "stream_event.h"
 
 int AcceptorEvent::Init(const std::string& listen_ip, int listen_port)
 {
@@ -14,13 +14,20 @@ int AcceptorEvent::Init(const std::string& listen_ip, int listen_port)
 
 int AcceptorEvent::HandleInput(int fd)
 {
-	SockStream stream;
-	if (0 > acceptor_.Accept(stream))
+	SockStream * stream = new SockStream();
+	if (0 > acceptor_.Accept(*stream))
 	{
 		printf("acceptor error, errno:%d\n", errno);
 		return -1;
 	}
-
+	StreamEvent* e = new StreamEvent();
+	if (0 > e->Init(stream, loop_))
+	{
+		delete e;
+		e = NULL;
+		return -1;
+	}
+	return 0;
 }
 
 int AcceptorEvent::HandleClose(int fd, EventMask event_mask)

@@ -14,8 +14,8 @@ enum EventMask
 //事件处理接口类
 class EventHandler {
 public:
-	EventHandler();
-	virtual ~EventHandler();
+	EventHandler() {}
+	virtual ~EventHandler() {}
 
 	virtual int HandleInput(int fd) {};
 	virtual int HandleOutput(int fd) {};

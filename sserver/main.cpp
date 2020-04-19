@@ -1,8 +1,18 @@
 #include "net/acceptor.h"
 #include "net/epoll_poller.h"
+#include "net/event_loop.h"
 
+#include "acceptor_event.h"
 int main()
 {
+	EventLoop loop;
+	AcceptorEvent acceptor_event(&loop);
+
+	acceptor_event.Init("0.0.0.0", 62891);
+
+	loop.Loop();
+
+	/*
 	Acceptor acceptor;
 	if (-1 == acceptor.Open("0.0.0.0", 62111))
 	{
@@ -45,6 +55,7 @@ int main()
 		printf("close socket:%d\n", sock_stream.GetSockFd());
 		sock_stream.Close();
 	}
+	*/
 	/*
 	CEventLoop* loop = new CEpollLoop();
 	CAcceptorEvent* pAcceptor = new CAcceptorEvent(loop);

@@ -18,9 +18,10 @@ EventLoop::~EventLoop()
 	}
 	for(auto iter : fd_handlers_)
 	{
-		if (iter->second.handler_ptr)
+		if (iter.second.handler_ptr)
 		{
-			delete iter->second.handler_ptr;
+			delete iter.second.handler_ptr;
+			iter.second.handler_ptr = NULL;
 		}
 	}
 }
@@ -35,6 +36,7 @@ int EventLoop::Register(int fd, EventHandler * handler_ptr, EventMask mask)
 
 		fd_handlers_[fd].events = mask;
 		fd_handlers_[fd].handler_ptr = handler_ptr;
+		return 0;
 	}
 
 	//同一个fd的处理器必须相同，否则需先删除原有处理器，再重新注册
@@ -115,6 +117,7 @@ int EventLoop::Loop()
 	std::map<int, EventMask> result;
 	while (!cancel_loop_)
 	{
+		result.clear();
 		int fd_counts = poller_->Poll(result, 10);
 		if (0 > fd_counts)
 		{

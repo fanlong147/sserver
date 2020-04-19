@@ -2,6 +2,7 @@
 #define __SSERVER_NET_POLLER_H__
 
 #include "event_handler.h"
+#include <map>
 
 class Poller {
 public:

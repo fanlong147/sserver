@@ -20,6 +20,7 @@
     <ClCompile Include="net\epoll_poller.cpp" />
     <ClCompile Include="net\event_loop.cpp" />
     <ClCompile Include="acceptor_event.cpp" />
+    <ClCompile Include="stream_event.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="net\sock_stream.h" />

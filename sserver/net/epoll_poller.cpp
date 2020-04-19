@@ -30,8 +30,8 @@ int EpollPoller::Poll(std::map<int, EventMask>& fd_event_map, int timeout_millis
 		//epoll事件转换为程序事件，当前仅支持读写
 		auto& ep_event = epoll_events_[i];
 		int event = kNoneMask;
-		event = (ep_event.events | EPOLLIN ? (event | kReadMask) : event);
-		event = (ep_event.events | EPOLLOUT ? (event | kWriteMask) : event);
+		event = (ep_event.events & EPOLLIN ? (event | kReadMask) : event);
+		event = (ep_event.events & EPOLLOUT ? (event | kWriteMask) : event);
 		fd_event_map[ep_event.data.fd] = (EventMask)event;
 	}
 	
