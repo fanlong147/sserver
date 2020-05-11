@@ -27,7 +27,7 @@ public:
 	int SetKeepAlive(bool flag = true);		//true：设置， false:取消设置 
 //	int SetSockOpt();
 
-	int Send(char * data_buf, int num_bytes, int flag = 0);
+	int Send(const char * data_buf, int num_bytes, int flag = 0);
 	int Recv(char * data_buf, int num_bytes, int flag = 0);
 
 	int Close();

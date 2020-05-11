@@ -4,7 +4,7 @@
   正在验证体系结构
   正在启动远程生成
   正在编译源:
-  event_loop.cpp
+  main.cpp
 D:\lfan\study\Project\C++\sserver\sserver\net\event_handler.h(20,35): warning : no return statement in function returning non-void [-Wreturn-type]
 D:\lfan\study\Project\C++\sserver\sserver\net\event_handler.h(20,35): warning :   virtual int HandleInput(int fd) {};
 D:\lfan\study\Project\C++\sserver\sserver\net\event_handler.h(20,35): warning :                                    ^
@@ -14,11 +14,5 @@ D:\lfan\study\Project\C++\sserver\sserver\net\event_handler.h(21,36): warning : 
 D:\lfan\study\Project\C++\sserver\sserver\net\event_handler.h(23,57): warning : no return statement in function returning non-void [-Wreturn-type]
 D:\lfan\study\Project\C++\sserver\sserver\net\event_handler.h(23,57): warning :   virtual int HandleClose(int fd, EventMask event_mask) {};
 D:\lfan\study\Project\C++\sserver\sserver\net\event_handler.h(23,57): warning :                                                          ^
-D:\lfan\study\Project\C++\sserver\sserver\net\event_loop.cpp(170,1): warning : no return statement in function returning non-void [-Wreturn-type]
-D:\lfan\study\Project\C++\sserver\sserver\net\event_loop.cpp(170,1): warning :  }
-D:\lfan\study\Project\C++\sserver\sserver\net\event_loop.cpp(170,1): warning :  ^
-D:\lfan\study\Project\C++\sserver\sserver\net\event_loop.cpp(165,1): warning : control reaches end of non-void function [-Wreturn-type]
-D:\lfan\study\Project\C++\sserver\sserver\net\event_loop.cpp(165,1): warning :  }
-D:\lfan\study\Project\C++\sserver\sserver\net\event_loop.cpp(165,1): warning :  ^
   正在链接对象
   sserver.vcxproj -> D:\lfan\study\Project\C++\sserver\sserver\bin\x64\Debug\sserver.out

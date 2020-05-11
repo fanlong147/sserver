@@ -18,6 +18,8 @@ public:
 	int HandleClose(int fd, EventMask event_mask);
 
 private:
+
+private:
 	SockStream * local_stream_;
 	SockStream * remote_stream_;
 	EventLoop * loop_;

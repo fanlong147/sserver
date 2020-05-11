@@ -5,16 +5,17 @@
 #include "acceptor_event.h"
 int main()
 {
+
 	EventLoop loop;
 	AcceptorEvent acceptor_event(&loop);
 
 	acceptor_event.Init("0.0.0.0", 62891);
 
 	loop.Loop();
-
-	/*
+	
+/*
 	Acceptor acceptor;
-	if (-1 == acceptor.Open("0.0.0.0", 62111))
+	if (-1 == acceptor.Open("0.0.0.0", 62891))
 	{
 		printf("acceptor error, errno:%d\n", errno);
 		return -1;
@@ -55,7 +56,7 @@ int main()
 		printf("close socket:%d\n", sock_stream.GetSockFd());
 		sock_stream.Close();
 	}
-	*/
+*/	
 	/*
 	CEventLoop* loop = new CEpollLoop();
 	CAcceptorEvent* pAcceptor = new CAcceptorEvent(loop);

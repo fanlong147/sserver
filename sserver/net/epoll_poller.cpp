@@ -67,20 +67,21 @@ int EpollPoller::DelEvent(int fd, EventMask event)
 	if (!IsValidEvent(ep_event))
 		return -1;
 
-	return (0 > epoll_ctl(epoll_fd_, EPOLL_CTL_MOD, fd, &ep_event) ? -1 : 0);
+	return (0 > epoll_ctl(epoll_fd_, EPOLL_CTL_DEL, fd, &ep_event) ? -1 : 0);
 }
 
 struct epoll_event EpollPoller::TransEvent(int fd, EventMask event)
 {
 	struct epoll_event ep_event;
+	bzero(&ep_event, sizeof(ep_event));
 	ep_event.data.fd = fd;
 
 	//当前仅支持读写
-	if (event | kReadMask)
+	if (event & kReadMask)
 	{
 		ep_event.events |= EPOLLIN;
 	}
-	if (event | kWriteMask)
+	if (event & kWriteMask)
 	{
 		ep_event.events |= EPOLLOUT;
 	}

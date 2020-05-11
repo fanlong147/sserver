@@ -114,7 +114,7 @@ int SockStream::SetKeepAlive(bool flag /* = true */)
 	return (0 > setsockopt(sock_fd_, SOL_SOCKET, SO_KEEPALIVE, &sock_flag, sizeof(sock_flag)) ? -1 : 0);
 }
 
-int SockStream::Send(char * data_buf, int num_bytes, int flag /* = 0 */)
+int SockStream::Send(const char * data_buf, int num_bytes, int flag /* = 0 */)
 {
 	return send(sock_fd_,data_buf, num_bytes, flag);
 }

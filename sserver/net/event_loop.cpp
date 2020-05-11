@@ -95,10 +95,11 @@ int EventLoop::UnRegisterAll(int fd, bool is_delete_handler /* = false */)
 
 	if (is_delete_handler)
 	{
+		printf("delete is true\n");
 		delete result->second.handler_ptr;
 		result->second.handler_ptr = NULL;
 	}
-
+	fd_handlers_.erase(fd);
 	return poller_->DelEvent(fd);
 }
 
@@ -140,11 +141,12 @@ int EventLoop::Loop()
 				if (!(handler_iter->second.events & kReadMask))
 				{
 					printf("error event\n");
-					handler_iter->second.handler_ptr->HandleClose(s.first, kAllMask);
+					handler_iter->second.handler_ptr->HandleClose(s.first, kReadMask);
+					continue;
 				}
 				if (0 > handler_iter->second.handler_ptr->HandleInput(s.first))
 				{
-					handler_iter->second.handler_ptr->HandleClose(s.first, kAllMask);
+					handler_iter->second.handler_ptr->HandleClose(s.first, kReadMask);
 					continue;
 				}
 			}
@@ -153,11 +155,13 @@ int EventLoop::Loop()
 				if (!(handler_iter->second.events & kWriteMask))
 				{
 					printf("error event\n");
-					handler_iter->second.handler_ptr->HandleClose(s.first, kAllMask);
+					handler_iter->second.handler_ptr->HandleClose(s.first, kWriteMask);
+					continue;
 				}
 				if (0 > handler_iter->second.handler_ptr->HandleOutput(s.first))
 				{
-					handler_iter->second.handler_ptr->HandleClose(s.first,kAllMask);
+					handler_iter->second.handler_ptr->HandleClose(s.first, kWriteMask);
+					continue;
 				}
 			}
 		}
@@ -166,5 +170,5 @@ int EventLoop::Loop()
 
 int EventLoop::CancelLoop()
 {
-
+	cancel_loop_ = true;
 }
